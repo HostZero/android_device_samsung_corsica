@@ -35,6 +35,12 @@ PRODUCT_COPY_FILES += \
         device/samsung/corsica/init.recovery.rhea_ss_corsica.rc:root/init.recovery.rhea_ss_corsica.rc \
 	device/samsung/corsica/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica 
 
+ PRODUCT_COPY_FILES += \
+        frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
+        frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
+        frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+        device/samsung/corsica/media_codecs.xml:system/etc/media_codecs.xml 
+
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
 	device/samsung/corsica/bcm_headset.kl:system/usr/keylayout/bcm_headset.kl \
