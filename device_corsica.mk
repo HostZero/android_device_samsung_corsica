@@ -30,7 +30,6 @@ PRODUCT_COPY_FILES += \
 	device/samsung/corsica/init.bcm2165x.usb.rc:root/init.bcm2165x.usb.rc \
 	device/samsung/corsica/init.log.rc:root/init.log.rc \
 	device/samsung/corsica/init.bt.rc:root/init.bt.rc \
-	device/samsung/corsica/lpm.rc:root/lpm.rc \
 	device/samsung/corsica/ueventd.rhea_ss_corsica.rc:root/ueventd.rhea_ss_corsica.rc \
         device/samsung/corsica/init.recovery.rhea_ss_corsica.rc:root/init.recovery.rhea_ss_corsica.rc \
 	device/samsung/corsica/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica 
@@ -69,7 +68,6 @@ PRODUCT_PACKAGES += \
 	
 # Charger
 PRODUCT_PACKAGES += \
-	charger \
 	charger_res_images
 
 # These are the hardware-specific features
