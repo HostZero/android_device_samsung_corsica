@@ -56,11 +56,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
 
-# Misc other modules
+# Audio modules
 PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	audio.usb.default \
-        audio_policy.rhea
+        audio.r_submix.default \
+
+# fix audio in previous versions too :) i hope so     
+USE_CUSTOM_AUDIO_POLICY := 1
 
 # Device-specific packages
 PRODUCT_PACKAGES += \

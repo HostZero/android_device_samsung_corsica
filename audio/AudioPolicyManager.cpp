@@ -15,16 +15,16 @@
  * limitations under the License.
  */
 
-#define LOG_TAG "AudioPolicyManager"
+#define LOG_TAG "CorsicaAudioPolicyManager"
 //#define LOG_NDEBUG 0
 
-#include "AudioPolicyManager.h"
+#include "CorsicaAudioPolicyManager.h"
 
-namespace android_audio_legacy {
+namespace android {
 
 extern "C" AudioPolicyInterface* createAudioPolicyManager(AudioPolicyClientInterface *clientInterface)
 {
-    return new AudioPolicyManager(clientInterface);
+    return new CorsicaAudioPolicyManager(clientInterface);
 }
 
 extern "C" void destroyAudioPolicyManager(AudioPolicyInterface *interface)
@@ -32,17 +32,23 @@ extern "C" void destroyAudioPolicyManager(AudioPolicyInterface *interface)
     delete interface;
 }
 
-void AudioPolicyManager::setPhoneState(int state)
+CorsicaAudioPolicyManager::CorsicaAudioPolicyManager(AudioPolicyClientInterface clientInterface)
+    : AudioPolicyManager(clientInterface)
+{
+}
+
+void CorsicaAudioPolicyManager::setPhoneState(audio_mode_t state)
+
 {
     if (!isStateInCall(mPhoneState) && isStateInCall(state)) {
 		// On Corsica, we need to reset mLastVoiceVolume every call start to force the
 		// volume to be always set since the HAL sometimes forget about it
-        ALOGV("Resetting mLastVoiceVolume");
+        ALOGI("Resetting mLastVoiceVolume");
         mLastVoiceVolume = -1.0f;
     }
 
 	// Call parent function
-	AudioPolicyManagerBase::setPhoneState(state);
+	AudioPolicyManager::setPhoneState(state);
 }
 
 }; // namespace android
