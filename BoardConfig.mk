@@ -19,7 +19,7 @@ TARGET_ARCH_LOWMEM := true
 
 TARGET_BOOTLOADER_BOARD_NAME := rhea
 
-BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 mem=456M androidboot.console=ttyS0 gpt v3d_mem=67108864 pmem=24M@0x9E800000
+BOARD_KERNEL_CMDLINE := console=ttyS0,115200n8 mem=456M androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x82000000
 BOARD_KERNEL_PAGESIZE := 4096
 
@@ -29,12 +29,14 @@ BOARD_BOOTIMAGE_PARTITION_SIZE := 8388608
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 8388608
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1002438656
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2173139968
-BOARD_CACHEIMAGE_PARTITION_SIZE := 1073741824
-BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
+BLOCK_BASED_OTA := false
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
+
+# camera
+USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Kernel
 TARGET_PREBUILT_KERNEL := device/samsung/corsica/kernel
@@ -145,7 +147,6 @@ BOARD_SEPOLICY_UNION += \
     bkmgrd.te \
     device.te \
     geomagneticd.te \
-    gpsd.te \
     init.te \
     immvibed.te \
     kernel.te \
@@ -155,7 +156,7 @@ BOARD_SEPOLICY_UNION += \
     system_server.te \
     tvserver.te \
     vclmk.te \
-
+    
 #twrp
 #DEVICE_RESOLUTION := 240x320
 #RECOVERY_GRAPHICS_USE_LINELENGTH := true

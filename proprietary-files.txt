@@ -45,7 +45,6 @@ lib/libaacdecoderwrapper.so
 lib/libat.so
 lib/libacdapi_azi.so
 lib/libat_stubs.so
-lib/libatlog.so
 lib/libbrcm_ril.so
 lib/libbralloc.so
 lib/libbrcmaacenc.so
@@ -118,3 +117,4 @@ usr/lib/alsa-lib/libbcm_hp_filter.so
 usr/lib/alsa-lib/libbcm_test_filter.so
 usr/share/alsa/alsa.conf
 vendor/gfx.fw
+lib/libwebviewchromium.so 

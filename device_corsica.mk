@@ -15,6 +15,9 @@ PRODUCT_AAPT_PREF_CONFIG := ldpi
 TARGET_SCREEN_HEIGHT := 320
 TARGET_SCREEN_WIDTH := 240
 
+PRODUCT_COPY_FILES += \
+    vendor/cm/prebuilt/common/bootanimation/240.zip:system/media/240.zip
+
 DEVICE_PACKAGE_OVERLAYS += device/samsung/corsica/overlay
 
 LOCAL_PATH := device/samsung/corsica
@@ -38,6 +41,7 @@ PRODUCT_COPY_FILES += \
         frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
         frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
         frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
+        frameworks/av/media/libstagefright/data/media_codecs_ffmpeg.xml:system/etc/media_codecs_ffmpeg.xml \
         device/samsung/corsica/media_codecs.xml:system/etc/media_codecs.xml 
 
 # Prebuilt kl keymaps
@@ -46,7 +50,8 @@ PRODUCT_COPY_FILES += \
 	device/samsung/corsica/bcm_keypad_v2.kl:system/usr/keylayout/bcm_keypad_v2.kl \
 	device/samsung/corsica/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl \
 	device/samsung/corsica/Generic.kl:system/usr/keylayout/Generic.kl \
-	device/samsung/corsica/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl 
+	device/samsung/corsica/samsung-keypad.kl:system/usr/keylayout/samsung-keypad.kl \
+        device/samsung/corsica/cyttsp4_btn.kl:system/usr/keylayout/cyttsp4_btn.kl 
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
