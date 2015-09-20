@@ -39,7 +39,8 @@ EXTENDED_FONT_FOOTPRINT := true
 USE_DEVICE_SPECIFIC_CAMERA := true
 
 # Kernel
-TARGET_PREBUILT_KERNEL := device/samsung/corsica/kernel
+TARGET_KERNEL_SOURCE := kernel/samsung/corsica
+TARGET_KERNEL_CONFIG := cyanogenmod_corsica_defconfig
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
