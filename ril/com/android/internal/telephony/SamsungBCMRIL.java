@@ -31,13 +31,13 @@ import android.telephony.PhoneNumberUtils;
 import java.util.ArrayList;
 
 /**
- * Custom RIL to handle unique behavior of D2 radio
+ * Custom RIL to handle unique behavior of BCM RIL
  *
  * {@hide}
  */
 public class SamsungBCMRIL extends RIL implements CommandsInterface {
 
-    private Message mPendingGetSimStatus;
+    private static int sEnabledDataSimId = -1;
 
     public SamsungBCMRIL(Context context, int networkMode, int cdmaSubscription) {
         this(context, networkMode, cdmaSubscription, null);
@@ -46,7 +46,7 @@ public class SamsungBCMRIL extends RIL implements CommandsInterface {
     public SamsungBCMRIL(Context context, int networkMode,
             int cdmaSubscription, Integer instanceId) {
         super(context, networkMode, cdmaSubscription, instanceId);
-        mQANElements = 6;
+        mQANElements = 5;
     }
 
     public void
@@ -98,11 +98,20 @@ public class SamsungBCMRIL extends RIL implements CommandsInterface {
 
     @Override
     public void setDataAllowed(boolean allowed, Message result) {
-        if (allowed == true) {
-            int simId = mInstanceId == null ? 0 : mInstanceId;
+        int simId = mInstanceId == null ? 0 : mInstanceId;
+        if (!allowed) {
+            // Deactivate data call. This happens when switching data SIM
+            // and the framework will wait for data call to be deactivated.
+            // Emulate this by switching to the other SIM.
+            simId = 1 - simId;
+        }
+
+        if (sEnabledDataSimId != simId) {
             if (RILJ_LOGD) riljLog("Setting data subscription to " + simId);
             invokeOemRilRequestBrcm((byte) 0, (byte)(0x30 + simId), result);
+            sEnabledDataSimId = simId;
         } else {
+            if (RILJ_LOGD) riljLog("Data subscription is already set to " + simId);
             if (result != null) {
                 AsyncResult.forMessage(result, 0, null);
                 result.sendToTarget();
@@ -396,31 +405,6 @@ public class SamsungBCMRIL extends RIL implements CommandsInterface {
         Collections.sort(response);
 
         return response;
-    }
-
-    // Hack for Lollipop
-    // The system now queries for SIM status before radio on, resulting
-    // in getting an APPSTATE_DETECTED state. The RIL does not send an
-    // RIL_UNSOL_RESPONSE_SIM_STATUS_CHANGED message after the SIM is
-    // initialized, so delay the message until the radio is on.
-    @Override
-    public void
-    getIccCardStatus(Message result) {
-        if (mState != RadioState.RADIO_ON) {
-            mPendingGetSimStatus = result;
-        } else {
-            super.getIccCardStatus(result);
-        }
-    }
-
-    @Override
-    protected void switchToRadioState(RadioState newState) {
-        super.switchToRadioState(newState);
-
-        if (newState == RadioState.RADIO_ON && mPendingGetSimStatus != null) {
-            super.getIccCardStatus(mPendingGetSimStatus);
-            mPendingGetSimStatus = null;
-        }
     }
 
 }

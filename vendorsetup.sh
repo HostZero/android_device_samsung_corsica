@@ -1,1 +1,2 @@
 add_lunch_combo cm_corsica-userdebug
+add_lunch_combo cm_corsica-eng

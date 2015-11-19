@@ -1,6 +1,4 @@
-# chmod in init.rhea_ss_corsica.rc (for bkmgrd)
 allow init block_device:blk_file setattr;
 allow init radio_device:blk_file setattr;
 
-# insmod
-allow init self:capability sys_module; # TODO: want sys_ptrace too
+allow init self:capability sys_module;
