@@ -39,10 +39,9 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
 
-# Kernel
+# Kernel (compile with gcc-4.7 cuz legacy here :3)
 TARGET_KERNEL_SOURCE := kernel/samsung/corsica
 TARGET_KERNEL_CONFIG := cyanogenmod_corsica_defconfig
-#TARGET_PREBUILT_KERNEL := device/samsung/corsica/kernel
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
