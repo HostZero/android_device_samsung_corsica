@@ -440,6 +440,11 @@ service macloader /system/bin/macloader
 	class main
 	oneshot
 
+# GSM/HSDPA data workaround
+service data_workaround /system/bin/sh /ril_data.sh
+     user root
+     disabled
+
 on property:init.svc.macloader=stopped
     chown system root /data/.cid.info
     chmod 0664 /data/.cid.info

@@ -16,6 +16,7 @@ PRODUCT_COPY_FILES += \
 	device/samsung/corsica/ueventd.rhea_ss_corsica.rc:root/ueventd.rhea_ss_corsica.rc \
 	device/samsung/corsica/init.recovery.rhea_ss_corsica.rc:root/init.recovery.rhea_ss_corsica.rc \
 	device/samsung/corsica/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica \
+        device/samsung/corsica/ril_data.sh:root/ril_data.sh \
  
 PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
