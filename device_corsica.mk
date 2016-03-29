@@ -10,13 +10,13 @@ PRODUCT_AAPT_PREF_CONFIG := ldpi
 
 # Init files
 PRODUCT_COPY_FILES += \
-	device/samsung/corsica/init.rhea_ss_corsica.rc:root/init.rhea_ss_corsica.rc \
-	device/samsung/corsica/init.bcm2165x.usb.rc:root/init.bcm2165x.usb.rc \
-	device/samsung/corsica/init.log.rc:root/init.log.rc \
-	device/samsung/corsica/ueventd.rhea_ss_corsica.rc:root/ueventd.rhea_ss_corsica.rc \
-	device/samsung/corsica/init.recovery.rhea_ss_corsica.rc:root/init.recovery.rhea_ss_corsica.rc \
-	device/samsung/corsica/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica \
-        device/samsung/corsica/ril_data.sh:root/ril_data.sh \
+	device/samsung/corsica/rootdir/init.rhea_ss_corsica.rc:root/init.rhea_ss_corsica.rc \
+	device/samsung/corsica/rootdir/init.bcm2165x.usb.rc:root/init.bcm2165x.usb.rc \
+	device/samsung/corsica/rootdir/init.log.rc:root/init.log.rc \
+	device/samsung/corsica/rootdir/ueventd.rhea_ss_corsica.rc:root/ueventd.rhea_ss_corsica.rc \
+	device/samsung/corsica/rootdir/init.recovery.rhea_ss_corsica.rc:root/init.recovery.rhea_ss_corsica.rc \
+	device/samsung/corsica/rootdir/fstab.rhea_ss_corsica:root/fstab.rhea_ss_corsica \
+        device/samsung/corsica/rootdir/ril_data.sh:root/ril_data.sh \
  
 PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
