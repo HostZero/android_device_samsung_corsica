@@ -22,8 +22,9 @@ PRODUCT_COPY_FILES += \
 	frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
 	frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml \
-	device/samsung/corsica/media_codecs.xml:system/etc/media_codecs.xml \
-	device/samsung/corsica/audio_policy.conf:system/etc/audio_policy.conf \
+	device/samsung/corsica/configs/etc/media_codecs.xml:system/etc/media_codecs.xml \
+        device/samsung/corsica/configs/etc/media_profiles.xml:system/etc/media_profiles.xml \
+	device/samsung/corsica/configs/etc/audio_policy.conf:system/etc/audio_policy.conf \
 
 # Prebuilt kl keymaps
 PRODUCT_COPY_FILES += \
