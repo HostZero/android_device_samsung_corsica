@@ -96,7 +96,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 BOARD_RIL_CLASS := ../../../device/samsung/corsica/ril/
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung/corsica/fstab.rhea_ss_corsica
+TARGET_RECOVERY_FSTAB := device/samsung/corsica/rootdir/fstab.rhea_ss_corsica
 BOARD_LDPI_RECOVERY := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := "<font_7x16.h>"
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/samsung/corsica/recovery/recovery_keys.c
