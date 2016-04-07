@@ -46,9 +46,6 @@ lib/hw/camera.rhea.so
 lib/hw/gralloc.rhea.so
 lib/hw/hwcomposer.rhea.so
 
-#drm
-lib/drm/libdrmwvmplugin.so
-
 #libs
 lib/libaudiopolicy_sec.so
 lib/libasound.so
