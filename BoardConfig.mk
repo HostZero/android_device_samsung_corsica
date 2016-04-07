@@ -50,7 +50,7 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/samsung/corsica/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/samsung/corsica/bluetoothlibbt_vndcfg.txt
+BOARD_BLUEDROID_VENDOR_CONF := device/samsung/corsica/bluetooth/libbt_vndcfg.txt
 
 # Connectivity - Wi-Fi
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
