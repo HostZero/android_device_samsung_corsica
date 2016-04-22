@@ -30,11 +30,11 @@ BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x00800000
 # This is actually 1002438656, but reducing to 0 MB to support users using repartition.
 # Feel free to increase when needed
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 1002438656
-
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 2173120512
 BOARD_CACHEIMAGE_PARTITION_SIZE := 573741824
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
+BLOCK_BASED_OTA := false
 
 # Include an expanded selection of fonts
 EXTENDED_FONT_FOOTPRINT := true
@@ -76,10 +76,12 @@ BOARD_HAVE_SAMSUNG_WIFI := true
 USE_OPENGL_RENDERER := true
 BOARD_USE_MHEAP_SCREENSHOT := true
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
-TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+#TARGET_USES_ION := true
+HWUI_COMPILE_FOR_PERF := true
 BOARD_EGL_NEEDS_FNW := true
-COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS
-COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DEGL_NEEDS_FNW
+TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
+COMMON_GLOBAL_CFLAGS += -DNEEDS_VECTORIMPL_SYMBOLS -DEGL_NEEDS_FNW
+COMMON_GLOBAL_CFLAGS += -DMR0_CAMERA_BLOB -DADD_LEGACY_ACQUIRE_BUFFER_SYMBOL
 
 # Audio
 COMMON_GLOBAL_CFLAGS += -DMR0_AUDIO_BLOB -DRHEA_HWC
@@ -94,6 +96,7 @@ BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/power_supply/battery/batt_lp_charg
 
 # RIL
 BOARD_RIL_CLASS := ../../../device/samsung/corsica/ril/
+COMMON_GLOBAL_CFLAGS += -DDISABLE_ASHMEM_TRACKING
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/samsung/corsica/rootdir/fstab.rhea_ss_corsica
@@ -108,6 +111,9 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/class/android_usb/android0/f_mass_stora
 # healthd
 BOARD_HAL_STATIC_LIBRARIES := libhealthd.rhea
 
+# MTP
+BOARD_MTP_DEVICE := /dev/mtp_usb
+
 # CMHW
 BOARD_HARDWARE_CLASS := hardware/samsung/cmhw/ device/samsung/corsica/cmhw/
 
@@ -117,24 +123,29 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/corsica/include
 # jemalloc causes a lot of random crash on free()
 MALLOC_IMPL := dlmalloc
 
+# disable jack server 
+ANDROID_COMPILE_WITH_JACK := false
+
 # SELinux
 BOARD_SEPOLICY_DIRS += \
     device/samsung/corsica/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    file_contexts \
-    property_contexts \
-    service_contexts \
-    bkmgrd.te \
-    device.te \
-    geomagneticd.te \
-    gpsd.te \
-    init.te \
-    immvibed.te \
-    kernel.te \
-    macloader.te \
-    rild.te \
-    shell.te \
-    system_server.te \
-    tvserver.te \
-    vclmk.te
+
+#DEVICE_RESOLUTION := 240x320
+TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/corsica/zImage
+TARGET_RECOVERY_FSTAB = device/samsung/corsica/recovery/twrp.fstab
+HAVE_SELINUX := true
+TW_THEME := portrait_mdpi
+TW_FLASH_FROM_STORAGE := true
+RECOVERY_SDCARD_ON_DATA := true
+BOARD_HAS_NO_REAL_SDCARD := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_INCLUDE_CRYPTO := true
+TW_IGNORE_MAJOR_AXIS_0 := true
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_SCREEN_BLANK_ON_BOOT := true
+TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
+TW_MAX_BRIGHTNESS := 255

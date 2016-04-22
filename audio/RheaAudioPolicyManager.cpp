@@ -39,8 +39,8 @@ RheaAudioPolicyManager::RheaAudioPolicyManager(AudioPolicyClientInterface *clien
 
 void RheaAudioPolicyManager::setPhoneState(audio_mode_t state)
 {
-    if (!isStateInCall(mPhoneState) && isStateInCall(state)) {
-		// On I9082, we need to reset mLastVoiceVolume every call start to force the
+    if (!isStateInCall(mEngine->getPhoneState()) && isStateInCall(state)) {
+		// On corsica, we need to reset mLastVoiceVolume every call start to force the
 		// volume to be always set since the HAL sometimes forget about it
         ALOGI("Resetting mLastVoiceVolume");
         mLastVoiceVolume = -1.0f;

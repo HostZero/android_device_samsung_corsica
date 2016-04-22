@@ -69,6 +69,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libGLES_android
 
+# GPS/RIL
+PRODUCT_PACKAGES += \
+ 	libstlport \
+        libglgps-compat
+
 # These are the hardware-specific features
 PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml \
@@ -128,6 +133,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat-flags=--no-watch-dog
+
+# Use Awesomeplayer
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.media.use-awesome=true
+
 # Boot animation
 TARGET_SCREEN_HEIGHT := 320
 TARGET_SCREEN_WIDTH := 240
@@ -140,9 +153,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Dalvik heap config
 include frameworks/native/build/phone-hdpi-512-dalvik-heap.mk
-
-# we have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 $(call inherit-product, hardware/broadcom/wlan/bcmdhd/config/config-bcm.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)

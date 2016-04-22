@@ -57,7 +57,6 @@ lib/libat_stubs.so
 lib/libatlog.so	
 lib/lib_ARC_Omx_Plugin.so
 lib/libAMSWiFiLibs-1.0.5.so
-lib/libdrmdecrypt.so
 lib/libFraunhoferAAC.so
 lib/libbrcm_ril.so
 lib/libbralloc.so		
@@ -104,10 +103,7 @@ lib/libstagefrighthw.so
 lib/libtiming.so		
 lib/libuecodec.so		
 lib/libusb_config.so	
-lib/libwvdrm_L3.so
-lib/libvwengine.so
 lib/libwvm.so
-lib/libWVStreamControlAPI_L3.so
 lib/libcodec_util.so
 lib/libcontrolcsc.so		
 lib/libdeblock.so		
