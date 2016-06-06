@@ -49,6 +49,9 @@ PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	audio.usb.default \
 	audio.r_submix.default \
+	libnetcmdiface \
+	libstagefrighthw \
+	lights.hawaii
 
 USE_CUSTOM_AUDIO_POLICY := 1
 
