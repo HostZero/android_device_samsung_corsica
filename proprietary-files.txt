@@ -40,7 +40,6 @@ lib/egl/libGLES_rhea.so
 lib/hw/alsa.default.so
 lib/hw/audio.primary.rhea.so
 lib/hw/gps.rhea.so
-lib/hw/lights.rhea.so
 lib/hw/sensors.rhea.so
 lib/hw/camera.rhea.so
 lib/hw/gralloc.rhea.so
@@ -99,8 +98,7 @@ lib/libsecjpegboard.so
 lib/libsecjpeginterface.so
 lib/libsec_km.so
 lib/libsecmediarecorder_jni.so
-lib/libsoc.so		
-lib/libstagefrighthw.so		
+lib/libsoc.so			
 lib/libtiming.so		
 lib/libuecodec.so		
 lib/libusb_config.so	

@@ -49,6 +49,8 @@ PRODUCT_PACKAGES += \
 	audio.a2dp.default \
 	audio.usb.default \
 	audio.r_submix.default \
+        libstagefrighthw \
+	lights.rhea
 
 USE_CUSTOM_AUDIO_POLICY := 1
 
