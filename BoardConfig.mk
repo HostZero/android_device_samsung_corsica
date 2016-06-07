@@ -1,8 +1,5 @@
 USE_CAMERA_STUB := true
 
-# inherit from the proprietary version
--include vendor/samsung/corsica/BoardConfigVendor.mk
-
 # Legacy MMAP for pre-lollipop blobs
 BOARD_USES_LEGACY_MMAP := true
 
@@ -130,8 +127,8 @@ ANDROID_COMPILE_WITH_JACK := false
 BOARD_SEPOLICY_DIRS += \
     device/samsung/corsica/sepolicy
 
-
-#DEVICE_RESOLUTION := 240x320
+# TWRP stuff
+DEVICE_RESOLUTION := 240x320
 TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/corsica/zImage
 TARGET_RECOVERY_FSTAB = device/samsung/corsica/recovery/twrp.fstab
 HAVE_SELINUX := true
@@ -149,3 +146,10 @@ TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_BRIGHTNESS_PATH := "/sys/class/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 255
+TW_NO_USB_STORAGE := false
+TW_NO_BATT_PERCENT := false
+TW_NO_REBOOT_BOOTLOADER := false
+TW_NO_REBOOT_RECOVERY := false
+TW_HAS_DOWNLOAD_MODE := true
+TW_EXCLUDE_SUPERSU := true
+TW_USE_TOOLBOX := true
