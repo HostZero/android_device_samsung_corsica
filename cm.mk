@@ -3,9 +3,6 @@ PRODUCT_RELEASE_NAME := GalaxyPocketNeo
 
 # Inherit some common CM stuff.
 $(call inherit-product, vendor/cm/config/common_mini_phone.mk)
-
-# Get the long list of APNs
-PRODUCT_COPY_FILES := device/sample/etc/apns-full-conf.xml:system/etc/apns-conf.xml
  
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
  
