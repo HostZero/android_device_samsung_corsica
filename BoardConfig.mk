@@ -37,8 +37,8 @@ BLOCK_BASED_OTA := false
 EXTENDED_FONT_FOOTPRINT := true
 
 # Kernel (compile with gcc-4.7 cuz legacy here :3)
-TARGET_KERNEL_SOURCE := kernel/samsung/corsica
-TARGET_KERNEL_CONFIG := cyanogenmod_corsica_defconfig
+TARGET_KERNEL_SOURCE := 
+TARGET_KERNEL_CONFIG := 
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_HAS_LARGE_FILESYSTEM := true
@@ -129,7 +129,7 @@ BOARD_SEPOLICY_DIRS += \
 
 # TWRP stuff
 DEVICE_RESOLUTION := 240x320
-TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/corsica/zImage
+TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/corsica/kernel
 TARGET_RECOVERY_FSTAB = device/samsung/corsica/recovery/twrp.fstab
 HAVE_SELINUX := true
 TW_THEME := portrait_mdpi
