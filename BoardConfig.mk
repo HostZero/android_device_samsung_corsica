@@ -129,7 +129,7 @@ BOARD_SEPOLICY_DIRS += \
 
 # TWRP stuff
 DEVICE_RESOLUTION := 240x320
-TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/corsica/kernel
+TARGET_PREBUILT_RECOVERY_KERNEL := device/samsung/corsica/boot.img-kernel
 TARGET_RECOVERY_FSTAB = device/samsung/corsica/recovery/twrp.fstab
 HAVE_SELINUX := true
 TW_THEME := portrait_mdpi
